@@ -1,29 +1,17 @@
 #include <iostream>
 #include <vector>
 #include "Product.hpp"
+#include "Warehouse.hpp"
 
 using namespace std;
 
 int main()
 {
-    Product t("Ajto(fa)", 10);
-    Product t2("Ajto(vas)", 20);
-
-    vector<Product *> v;
-    v.push_back(&t);
-    v.push_back(&t2);
-    for (Product *k : v)
-    {
-        k->print();
-    }
-
-    t2.addQuantity(5);
-    t.reduceQuantity(5);
-
-    for (Product *k : v)
-    {
-        k->print();
-    }
-
+    Warehouse Raktar("Ajtok");
+    Product t1("AJTO1", 100000, "ELSOGYARTO");
+    Product t2("AJTO2", 200000, "MASODIKGYARTO");
+    Raktar.addToStorage(&t1);
+    Raktar.addToStorage(&t2);
+    Raktar.print();
     return 0;
 }

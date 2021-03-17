@@ -7,16 +7,17 @@
 class Product
 {
 public:
-    Product(std::string name, int quantity);
+    Product(std::string name, int price, std::string manufacturer);
     std::string getName() const;
-    int getQuantity() const;
+    int getPrice() const;
+    std::string getManufacturer() const;
     void print() const;
-    void addQuantity(int num);
-    void reduceQuantity(int num);
+    void changePrice(int newPrice);
 
 private:
     std::string name;
-    int quantity;
+    int price;
+    std::string manufacturer;
 };
 
 #endif

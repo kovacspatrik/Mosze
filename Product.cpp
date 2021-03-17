@@ -1,30 +1,32 @@
 #include "Product.hpp"
 
-Product::Product(std::string name, int quantity) : name(name), quantity(quantity) {}
+Product::Product(std::string name, int price, std::string manufacturer) : name(name), price(price), manufacturer(manufacturer) {}
 
 std::string Product::getName() const
 {
     return name;
 }
 
-int Product::getQuantity() const
+int Product::getPrice() const
 {
-    return quantity;
+    return price;
 }
 
 void Product::print() const
 {
-    std::cout << name << ": " << quantity << " db\n";
+    std::cout << name << ": " << price << " ft"
+              << " (Gyartja: " << manufacturer << ")\n";
 }
 
-void Product::addQuantity(int num)
+std::string Product::getManufacturer() const
 {
-    quantity += num;
+    return manufacturer;
 }
 
-void Product::reduceQuantity(int num)
+void Product::changePrice(int newPrice)
 {
-    // quantity -= num;
-    int tmp = quantity - num;
-    quantity = (tmp < 0) ? 0 : tmp;
+    if (newPrice > 0)
+    {
+        price = newPrice;
+    }
 }
