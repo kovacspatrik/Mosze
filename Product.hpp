@@ -11,7 +11,7 @@ public:
     std::string getName() const;
     int getPrice() const;
     std::string getManufacturer() const;
-    void print() const;
+    virtual void print() = 0;
     void changePrice(int newPrice);
 
 private:

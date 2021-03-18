@@ -13,7 +13,7 @@ private:
 public:
     Phone(std::string name, int price, std::string manufacturer, int ramSize, std::string opSystem);
     int getRamSize() const;
-    void print() const;
+    void print();
 };
 
 #endif

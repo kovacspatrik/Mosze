@@ -12,12 +12,6 @@ int Product::getPrice() const
     return price;
 }
 
-void Product::print() const
-{
-    std::cout << name << ": " << price << " ft"
-              << " (Gyartja: " << manufacturer << ")\n";
-}
-
 std::string Product::getManufacturer() const
 {
     return manufacturer;
