@@ -11,8 +11,7 @@ private:
     std::string type = "Mobiltelefon";
 
 public:
-    Phone(std::string name, int price, std::string manufacturer, int ramSize, std::string opSystem);
-    int getRamSize() const;
+    Phone(std::string name, int price, std::string manufacturer, int quantity, int ramSize, std::string opSystem);
     void print();
 };
 

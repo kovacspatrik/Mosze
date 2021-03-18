@@ -11,7 +11,7 @@ private:
     std::string type = "PC";
 
 public:
-    Computer(std::string name, int price, std::string manufacturer, int ramSize, int storage);
+    Computer(std::string name, int price, std::string manufacturer, int quantity, int ramSize, int storage);
     void print();
 };
 

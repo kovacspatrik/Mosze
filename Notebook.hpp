@@ -11,7 +11,7 @@ private:
     std::string type = "Notebook";
 
 public:
-    Notebook(std::string name, int price, std::string manufacturer, int ramSize, double weight);
+    Notebook(std::string name, int price, std::string manufacturer, int quantity, int ramSize, double weight);
     int getRamSize() const;
     void print();
 };

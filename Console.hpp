@@ -10,7 +10,7 @@ private:
     std::string type = "Jatekkonzol";
 
 public:
-    Console(std::string name, int price, std::string manufacturer, int storage);
+    Console(std::string name, int price, std::string manufacturer, int quantity, int storage);
     void print();
 };
 
