@@ -1,0 +1,8 @@
+{
+	"name": "Iphone X",
+	"price": "500000",
+	"manufacturer": "Apple",
+    "quantity": "14",
+    "ramSize": "3",
+    "opSystem": "iOS"
+}

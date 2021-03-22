@@ -2,6 +2,7 @@
 #define COMPUTER_HPP
 
 #include "Product.hpp"
+#include "JSON.hpp"
 
 class Computer : public Product
 {
@@ -11,8 +12,10 @@ private:
     std::string type = "PC";
 
 public:
+    Computer();
     Computer(std::string name, int price, std::string manufacturer, int quantity, int ramSize, int storage);
     void print();
+    static Computer ParseComputer(const std::string &fileName);
 };
 
 #endif

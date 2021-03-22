@@ -2,6 +2,7 @@
 #define PHONE_HPP
 
 #include "Product.hpp"
+#include "JSON.hpp"
 
 class Phone : public Product
 {
@@ -13,6 +14,7 @@ private:
 public:
     Phone(std::string name, int price, std::string manufacturer, int quantity, int ramSize, std::string opSystem);
     void print();
+    static Phone ParsePhone(const std::string &fileName);
 };
 
 #endif

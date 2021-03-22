@@ -1,0 +1,4 @@
+computers/predator.json
+consoles/ps5.json
+notebooks/vivoS14.json
+phones/iphoneX.json

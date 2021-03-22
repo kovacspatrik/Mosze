@@ -4,6 +4,7 @@
 #include <iostream>
 #include <vector>
 #include "Product.hpp"
+#include "JSON.hpp"
 
 class Warehouse
 {
@@ -16,6 +17,7 @@ public:
     std::string getName() const;
     void print() const;
     void addToStorage(Product *p);
+    static Warehouse ParseWarehouse(const std::string &fileName);
 };
 
 #endif

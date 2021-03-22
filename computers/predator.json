@@ -1,0 +1,8 @@
+{
+	"name": "Predator",
+	"price": "700000",
+	"manufacturer": "Acer",
+    "quantity": "16",
+    "ramSize": "32",
+    "storage": "1000"
+}
