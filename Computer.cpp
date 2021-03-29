@@ -1,7 +1,7 @@
 #include "Computer.hpp"
 
 Computer::Computer(std::string name, int price, std::string manufacturer, int quantity, int ramSize, int storage) : Product(name, price, manufacturer, quantity), ramSize(ramSize), storage(storage) {}
-Computer::Computer() : Product("", 0, "", 0), ramSize(0), storage(0) {}
+
 
 void Computer::print()
 {

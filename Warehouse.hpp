@@ -17,6 +17,7 @@ public:
     std::string getName() const;
     void print() const;
     void addToStorage(Product *p);
+    std::vector<Product*> getStorage();
     static Warehouse ParseWarehouse(const std::string &fileName);
 };
 

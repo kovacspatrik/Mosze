@@ -13,46 +13,48 @@ int main(int argc, char *argv[])
 {
     Warehouse Raktar("Elektronikai termekek");
 
-    std::string file1 = argv[1];
-    std::string file2 = argv[2];
-    std::string file3 = argv[3];
-    std::string file4 = argv[4]; 
+   // std::string file1 = argv[1];
+   // std::string file2 = argv[2];
+   // std::string file3 = argv[3];
+   // std::string file4 = argv[4]; 
 
-    Notebook n = Notebook::ParseNotebook(file1);
-    Computer c = Computer::ParseComputer(file2);
-    Console cns = Console::ParseConsole(file3);
-    Phone p = Phone::ParsePhone(file4);
 
-    Raktar.addToStorage(&n);
-    Raktar.addToStorage(&c);
-    Raktar.addToStorage(&cns);
-    Raktar.addToStorage(&p); 
+   // Notebook n = Notebook::ParseNotebook(file1);
+    //Computer c = Computer::ParseComputer(file2);
+   // Console cns = Console::ParseConsole(file3);
+    //Phone p = Phone::ParsePhone(file4);
 
-    /* 
-    Még nem jó egységesített beolvasás, hogy ne kelljen 5 file-t megadni
+    //Raktar.addToStorage(&n);
+    //Raktar.addToStorage(&c);
+   // Raktar.addToStorage(&cns);
+   // Raktar.addToStorage(&p); 
+
     std::string fileName = argv[1];
     std::ifstream file(fileName);
     std::string str;    
     while (std::getline(file, str))
     {
     if (str.find("computers/") != std::string::npos) {
-        Computerc = Computer::ParseComputer(str);
-        Raktar.addToStorage(&Computer::ParseComputer(str));
+        Computer *c = new Computer(Computer::ParseComputer(str));
+        Raktar.addToStorage(c);
+
     }
     if (str.find("notebooks/") != std::string::npos) {
-        Notebook n = Notebook::ParseNotebook(str);
-        std::cout <<n.getName()<< "\n";
-        Raktar.addToStorage(&n);
+        Notebook *n = new Notebook(Notebook::ParseNotebook(str));
+        Raktar.addToStorage(n);
+
     }
     if (str.find("phones/") != std::string::npos) {
-        Phone p = Phone::ParsePhone(str);
-        Raktar.addToStorage(&p);
+        Phone *p = new Phone(Phone::ParsePhone(str));
+        Raktar.addToStorage(p);
+
     }
     if (str.find("consoles/") != std::string::npos) {
-        Console cns = Console::ParseConsole(str);
-        Raktar.addToStorage(&cns);
+        Console *cns = new Console(Console::ParseConsole(str));
+        Raktar.addToStorage(cns);
+
     }
-    } */
+    } 
 
     /*Warehouse Raktar("Elektronikai termekek");
      Phone t1("Iphone X", 500000, "Apple", 14, 3, "IOS");
@@ -98,5 +100,11 @@ int main(int argc, char *argv[])
             break;
         }
     } */
-    return 0;
+    //Memory Clear
+for (auto p : Raktar.getStorage())
+   {
+     delete p;
+   } 
+   Raktar.getStorage().clear();
+return 0;
 }

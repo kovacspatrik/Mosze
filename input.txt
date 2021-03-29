@@ -1,4 +1,8 @@
 computers/predator.json
+computers/ibuypower.json
 consoles/ps5.json
+consoles/xboxSeriesX.json
 notebooks/vivoS14.json
+notebooks/macbookPro16.json
 phones/iphoneX.json
+phones/galaxyNote.json

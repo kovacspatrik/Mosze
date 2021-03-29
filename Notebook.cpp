@@ -1,5 +1,6 @@
 #include "Notebook.hpp"
 
+
 Notebook::Notebook(std::string name, int price, std::string manufacturer, int quantity, int ramSize, double weight) 
 : Product(name, price, manufacturer, quantity), ramSize(ramSize), weight(weight) {}
 

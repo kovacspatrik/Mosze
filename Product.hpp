@@ -8,6 +8,7 @@ class Product
 {
 public:
     Product(std::string name, int price, std::string manufacturer, int quantity);
+    Product();
     std::string getName() const;
     int getPrice() const;
     std::string getManufacturer() const;

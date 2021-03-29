@@ -2,6 +2,8 @@
 
 Product::Product(std::string name, int price, std::string manufacturer, int quantity) : name(name), price(price), manufacturer(manufacturer), quantity(quantity) {}
 
+Product::Product() : name(""), price(0), manufacturer(""), quantity(0) {}
+
 std::string Product::getName() const
 {
     return name;

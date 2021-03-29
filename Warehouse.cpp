@@ -34,3 +34,6 @@ Warehouse Warehouse::ParseWarehouse(const std::string &fileName){
         throw fileName;
     }
 }
+std::vector<Product*> Warehouse::getStorage(){
+    return this->storage;
+}
