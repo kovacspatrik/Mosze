@@ -16,6 +16,7 @@ public:
     Warehouse(std::string name);
     std::string getName() const;
     void print() const;
+    void makeFile();
     void addToStorage(Product *p);
     std::vector<Product*> getStorage();
     static Warehouse ParseWarehouse(const std::string &fileName);

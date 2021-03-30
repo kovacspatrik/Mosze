@@ -16,6 +16,7 @@ public:
     int getRamSize() const;
     void print();
     static Notebook ParseNotebook(const std::string &fileName);
+    void generateTxt(std::string fileName);
 };
 
 #endif

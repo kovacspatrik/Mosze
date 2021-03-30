@@ -67,6 +67,7 @@ int main(int argc, char *argv[])
     Raktar.addToStorage(&cns1);
     Raktar.addToStorage(&c1); */
 
+    Raktar.makeFile();
     Raktar.print();
 
    /*   int num = 0;

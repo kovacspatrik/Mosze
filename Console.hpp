@@ -14,6 +14,7 @@ public:
     Console(std::string name, int price, std::string manufacturer, int quantity, int storage);
     void print();
     static Console ParseConsole(const std::string &fileName);
+    void generateTxt(std::string fileName);
 };
 
 #endif

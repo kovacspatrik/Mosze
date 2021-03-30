@@ -15,6 +15,22 @@ void Warehouse::print() const
     std::cout << "\n";
 }
 
+void Warehouse::makeFile()
+{
+    std::string fileName ="outputfile.txt";
+    std::ofstream myFile(fileName);
+    if (myFile.is_open()){
+    myFile << "RAKTAR NEVE: " << name << "\n";
+    myFile << "-------------------\n";
+    myFile.close();
+    for (Product *k : storage)
+    {
+        k->generateTxt(fileName);
+    }
+    }
+    else std::cout<<"Nem tudtuk megnyitni!";
+}
+
 void Warehouse::addToStorage(Product *p)
 {
     storage.push_back(p);

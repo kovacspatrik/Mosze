@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#include <fstream>
 
 class Product
 {
@@ -13,6 +14,7 @@ public:
     int getPrice() const;
     std::string getManufacturer() const;
     virtual void print() = 0;
+    virtual void generateTxt(std::string fileName)=0;
     void changePrice(int newPrice);
     int getQuantity() const;
     void changeQuantity(int newQuantity);

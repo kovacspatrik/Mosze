@@ -16,6 +16,24 @@ void Notebook::print()
     std::cout << std::endl;
 }
 
+void Notebook::generateTxt(std::string fileName){
+    std::fstream insertVlue;
+    insertVlue.open(fileName, std::ios_base::app);
+    if(insertVlue.is_open()){
+    insertVlue << "Termek tipusa: " << type << std::endl;
+    insertVlue << "Termek gyartoja: " << getManufacturer() << std::endl;
+    insertVlue << "Termek neve: " << getName() << std::endl;
+    insertVlue << "Termek RAM merete: " << ramSize << " GB" << std::endl;
+    insertVlue << "Termek sulya: " << weight << " kg" << std::endl;
+    insertVlue << "Keszleten: " << getQuantity() << " db" << std::endl;
+    insertVlue << "AR: " << getPrice() << " Ft" << std::endl;
+    insertVlue << std::endl;
+    insertVlue.close();
+    }
+    
+    else std::cerr<<"Error";
+}
+
 Notebook Notebook::ParseNotebook(const std::string &fileName){
      std::ifstream inputFile(fileName);
     if (inputFile.is_open())

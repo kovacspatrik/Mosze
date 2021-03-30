@@ -16,6 +16,7 @@ public:
     Computer(std::string name, int price, std::string manufacturer, int quantity, int ramSize, int storage);
     void print();
     static Computer ParseComputer(const std::string &fileName);
+    void generateTxt(std::string fileName);
 };
 
 #endif
