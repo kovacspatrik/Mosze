@@ -4,6 +4,7 @@
 #include "Product.hpp"
 #include "JSON.hpp"
 
+
 class Notebook : public Product
 {
 private:
@@ -15,8 +16,10 @@ public:
     Notebook(std::string name, int price, std::string manufacturer, int quantity, int ramSize, double weight);
     int getRamSize() const;
     void print();
+    double getWeight() const;
     static Notebook ParseNotebook(const std::string &fileName);
     void generateTxt(std::string fileName);
+    void generateJson();
 };
 
 #endif

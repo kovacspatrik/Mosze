@@ -33,6 +33,31 @@ void Phone::generateTxt(std::string fileName){
     else std::cerr<<"Error";
 }
 
+void Phone::generateJson(){
+    std::string filename = this->getName();
+    std::string::iterator end_pos = std::remove(filename.begin(), filename.end(), ' ');
+    filename.erase(end_pos, filename.end());
+    filename = "phones/" + filename + ".json";
+
+    std::ofstream MyFile(filename);
+    MyFile << "{\n\"name\":\"";
+    MyFile << this->getName();
+    MyFile << "\",\n";
+    MyFile <<"\"price\":\"";
+    MyFile << this->getPrice() ;
+    MyFile <<"\",\n ";
+    MyFile <<"\"manufacturer\":\"";
+    MyFile << this->getManufacturer();
+    MyFile << "\",\n ";
+    MyFile <<"\"quantity\":\"";
+    MyFile << this->getQuantity();
+    MyFile <<"\",\n ";
+    MyFile <<"\"opSystem\":\"";
+    MyFile <<this->getOpsystem() ;
+    MyFile <<"\"\n }";
+    MyFile.close();
+}
+
 Phone Phone::ParsePhone(const std::string &fileName){
     std::ifstream inputFile(fileName);
     if (inputFile.is_open())
@@ -50,4 +75,11 @@ Phone Phone::ParsePhone(const std::string &fileName){
     }else{
         throw fileName;
     }
+}
+
+int Phone::getRamSize() const {
+    return this->ramSize;
+}
+std::string Phone::getOpsystem() const {
+    return this->opSystem;
 }

@@ -28,6 +28,32 @@ void Console::generateTxt(std::string fileName){
     else std::cerr<<"Error";
 }
 
+void Console::generateJson(){
+    std::string filename = this->getName();
+    std::string::iterator end_pos = std::remove(filename.begin(), filename.end(), ' ');
+    filename.erase(end_pos, filename.end());
+    filename = "consoles/" + filename + ".json";
+
+    std::ofstream MyFile(filename);
+    MyFile << "{\n\"name\":\"";
+    MyFile << this->getName();
+    MyFile << "\",\n";
+    MyFile <<"\"price\":\"";
+    MyFile << this->getPrice() ;
+    MyFile <<"\",\n ";
+    MyFile <<"\"manufacturer\":\"";
+    MyFile << this->getManufacturer();
+    MyFile << "\",\n ";
+    MyFile <<"\"quantity\":\"";
+    MyFile << this->getQuantity();
+    MyFile <<"\",\n ";
+    MyFile <<"\"storage\":\"";
+    MyFile <<this->getStorage() ;
+    MyFile <<"\"\n }";
+
+    MyFile.close();
+}
+
 Console Console::ParseConsole(const std::string &fileName){
      std::ifstream inputFile(fileName);
     if (inputFile.is_open())
@@ -44,4 +70,8 @@ Console Console::ParseConsole(const std::string &fileName){
     }else{
         throw fileName;
     }
+}
+
+int Console::getStorage() const{
+    return this->storage;
 }

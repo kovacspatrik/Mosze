@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <algorithm>
 
 class Product
 {
@@ -15,6 +16,7 @@ public:
     std::string getManufacturer() const;
     virtual void print() = 0;
     virtual void generateTxt(std::string fileName)=0;
+    virtual void generateJson()=0;
     void changePrice(int newPrice);
     int getQuantity() const;
     void changeQuantity(int newQuantity);

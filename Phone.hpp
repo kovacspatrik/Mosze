@@ -15,7 +15,10 @@ public:
     Phone(std::string name, int price, std::string manufacturer, int quantity, int ramSize, std::string opSystem);
     void print();
     static Phone ParsePhone(const std::string &fileName);
+    int getRamSize() const ;
+    std::string getOpsystem() const ;
     void generateTxt(std::string fileName);
+    void generateJson();
 };
 
 #endif

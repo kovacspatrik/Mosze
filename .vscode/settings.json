@@ -47,5 +47,6 @@
         "map": "cpp",
         "regex": "cpp",
         "variant": "cpp"
-    }
+    },
+    "C_Cpp.errorSquiggles": "Enabled"
 }

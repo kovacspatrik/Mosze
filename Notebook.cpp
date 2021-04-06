@@ -34,6 +34,32 @@ void Notebook::generateTxt(std::string fileName){
     else std::cerr<<"Error";
 }
 
+void Notebook::generateJson(){
+    std::string filename = this->getName();
+    std::string::iterator end_pos = std::remove(filename.begin(), filename.end(), ' ');
+    filename.erase(end_pos, filename.end());
+    filename = "notebooks/" + filename + ".json";
+
+    std::string tartalom = "{name:\"" + getName()+ "\",\n";
+ std::ofstream MyFile(filename);
+    MyFile << "{\n\"name\":\"";
+    MyFile << this->getName();
+    MyFile << "\",\n";
+    MyFile <<"\"price\":\"";
+    MyFile << this->getPrice() ;
+    MyFile <<"\",\n ";
+    MyFile <<"\"manufacturer\":\"";
+    MyFile << this->getManufacturer();
+    MyFile << "\",\n ";
+    MyFile <<"\"quantity\":\"";
+    MyFile << this->getQuantity();
+    MyFile <<"\",\n ";
+    MyFile <<"\"weight\":\"";
+    MyFile <<this->getWeight() ;
+    MyFile <<"\"\n }";
+    MyFile.close();
+}
+
 Notebook Notebook::ParseNotebook(const std::string &fileName){
      std::ifstream inputFile(fileName);
     if (inputFile.is_open())
@@ -51,4 +77,11 @@ Notebook Notebook::ParseNotebook(const std::string &fileName){
     }else{
         throw fileName;
     }
+}
+
+int Notebook::getRamSize()const {
+    return this->ramSize;
+}
+double Notebook::getWeight()const {
+    return this->weight;
 }

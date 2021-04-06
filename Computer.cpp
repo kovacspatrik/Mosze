@@ -32,6 +32,35 @@ void Computer::generateTxt(std::string fileName){
     else std::cerr<<"Error";
 }
 
+void Computer::generateJson(){
+    std::string filename = this->getName();
+    std::string::iterator end_pos = std::remove(filename.begin(), filename.end(), ' ');
+    filename.erase(end_pos, filename.end());
+    filename = "computers/"+filename + ".json";
+    std::ofstream MyFile(filename);
+
+    MyFile << "{\n\"name\":\"";
+    MyFile << this->getName();
+    MyFile << "\",\n";
+    MyFile <<"\"price\":\"";
+    MyFile << this->getPrice() ;
+    MyFile <<"\",\n ";
+    MyFile <<"\"manufacturer\":\"";
+    MyFile << this->getManufacturer();
+    MyFile << "\",\n ";
+    MyFile <<"\"quantity\":\"";
+    MyFile << this->getQuantity();
+    MyFile <<"\",\n ";
+    MyFile <<"\"ramSize\":\"" ;
+    MyFile << this->getRamsize() ;
+    MyFile <<"\",\n ";
+    MyFile <<"\"storage\":\"";
+    MyFile <<this->getStorage() ;
+    MyFile <<"\"\n }";
+
+    MyFile.close();
+}
+
 Computer Computer::ParseComputer(const std::string &fileName){
     std::ifstream inputFile(fileName);
     if (inputFile.is_open())
@@ -50,4 +79,10 @@ Computer Computer::ParseComputer(const std::string &fileName){
         throw fileName;
     }
 }
-
+int Computer::getRamsize(){
+    return this->ramSize;
+}
+    
+int Computer::getStorage(){
+    return this->storage;
+}
