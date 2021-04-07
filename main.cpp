@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+
 #include "Phone.hpp"
 #include "Notebook.hpp"
 #include "Computer.hpp"
@@ -35,6 +36,27 @@ void deleteJSON(std::string filename,int tipus){
     }
     if(remove(file.c_str()) != 0 )
         perror("Error deleting file");
+
+    std::string line = "";
+    std::string deleteline = file;
+    std::ifstream fin;
+    fin.open("input.txt");
+    std::ofstream temp;
+    temp.open("tmp.txt");
+    while (getline(fin,line))
+    {
+        std::cout << line <<std::endl;
+        if(line.compare(deleteline) == 0){
+            line.replace(line.find(deleteline),deleteline.length(),"");
+        }
+        temp << line << std::endl;
+    }
+    
+    temp.close();
+    fin.close();
+    if(remove("input.txt") != 0 )
+        perror("Error deleting file");
+    rename("tmp.txt","input.txt");   
 }
 
 int main(int argc, char *argv[])
@@ -64,13 +86,14 @@ int main(int argc, char *argv[])
         Console *cns = new Console(Console::ParseConsole(str));
         Raktar.addToStorage(cns);
     }
-    } 
+    }
     //Csak akkor ír ki ha teszt
      if(argc>2){
         Raktar.makeFile();
         Raktar.print();
     }
     else{
+        file.close(); 
         int num = 0;
         while (num!=6){
             std::cout << "-------------------\n";
@@ -94,7 +117,6 @@ int main(int argc, char *argv[])
             if(num==3){//Torles
                 int valasz = typeSelectionMenu();
                 int idx = Raktar.selectByType(valasz);
-                std::cout<<"Biztosan torli a termeket?";
                 std::string name = Raktar.getStorage().at(idx)->getName();
                 std::string::iterator end_pos = std::remove(name.begin(), name.end(), ' ');
                 name.erase(end_pos, name.end());
