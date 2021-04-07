@@ -6,8 +6,36 @@
 #include "Console.hpp"
 #include "Warehouse.hpp"
 #include "JSON.hpp"
+#include "deleteMenu.hpp"
+#include "typeSelection.hpp"
+#include "stdio.h"
 
-using namespace std;
+void deleteJSON(std::string filename,int tipus){
+    std::string file = "";
+    switch (tipus)
+    {
+    case 1:
+        file = "computers/";
+        file.append(filename);
+        break;
+    case 2:
+        file = "consoles/";
+        file.append(filename);
+        break;
+    case 3:
+        file = "notebooks/";
+        file.append(filename);
+        break;
+    case 4:
+        file = "phones/";
+        file.append(filename);
+        break;
+    default:
+        break;
+    }
+    if(remove(file.c_str()) != 0 )
+        perror("Error deleting file");
+}
 
 int main(int argc, char *argv[])
 {
@@ -39,31 +67,49 @@ int main(int argc, char *argv[])
     } 
     //Csak akkor ír ki ha teszt
      if(argc>2){
-        //Raktar.makeFile();
-        //Raktar.print();
-        Raktar.getStorage().at(0)->generateJson();
+        Raktar.makeFile();
+        Raktar.print();
     }
     else{
         int num = 0;
         while (num!=6){
-            cout << "MENU:\n";
-            cout << "1: UJ TERMEK FELVETELE\n";
-            cout << "2: TERMEK SZERKESZTESE\n";
-            cout << "3: TERMEK TORLESE\n";
-            cout << "4: KILEPES\n";
-            cin >> num;
+            std::cout << "-------------------\n";
+            std::cout << "MENU:\n";
+            std::cout << "1: UJ TERMEK FELVETELE\n";
+            std::cout << "2: TERMEK SZERKESZTESE\n";
+            std::cout << "3: TERMEK TORLESE\n";
+            std::cout << "5: OSSZES TERMEK LISTAZASA\n";
+            std::cout << "6: KILEPES\n";
+            std::cin >> num;
             
             if(num==1){
-                cout << "Hamarosan...\n";
+                std::cout << "Hamarosan...\n";
             }
-            if(num==2){
-                cout << "Hamarosan...\n";
+            if(num==2){//Modositas
+                int valasz = typeSelectionMenu();
+                int idx = Raktar.selectByType(valasz);
+                Raktar.modifyIteminStorage(idx);
+                Raktar.getStorage().at(idx)->generateJson();
             }
-            if(num==3){
-                cout << "Hamarosan...\n";
+            if(num==3){//Torles
+                int valasz = typeSelectionMenu();
+                int idx = Raktar.selectByType(valasz);
+                std::cout<<"Biztosan torli a termeket?";
+                std::string name = Raktar.getStorage().at(idx)->getName();
+                std::string::iterator end_pos = std::remove(name.begin(), name.end(), ' ');
+                name.erase(end_pos, name.end());
+                name.append(".json");
+                deleteJSON(name,valasz);
+                Raktar.removeFromStorage(idx);
+                continue;
             }
-            if(num==4){
-                cout << "Viszlat\n";
+            if(num==5){
+                std::cout << "-------------------\n";
+                Raktar.print();
+                std::cout << "-------------------\n";
+            }
+            if(num==6){
+                std::cout << "Viszlat\n";
                 break;
             }
         }
@@ -76,3 +122,4 @@ for (auto p : Raktar.getStorage())
    Raktar.getStorage().clear();
 return 0;
 }
+

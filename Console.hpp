@@ -17,6 +17,7 @@ public:
     static Console ParseConsole(const std::string &fileName);
     void generateTxt(std::string fileName);
     void generateJson();
+    std::string getType() const;
 };
 
 #endif

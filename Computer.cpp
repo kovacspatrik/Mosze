@@ -86,3 +86,7 @@ int Computer::getRamsize(){
 int Computer::getStorage(){
     return this->storage;
 }
+std::string Computer::getType() const
+{
+    return this->type;
+}

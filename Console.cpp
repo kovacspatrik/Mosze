@@ -75,3 +75,7 @@ Console Console::ParseConsole(const std::string &fileName){
 int Console::getStorage() const{
     return this->storage;
 }
+std::string Console::getType() const
+{
+    return this->type;
+}

@@ -83,3 +83,6 @@ int Phone::getRamSize() const {
 std::string Phone::getOpsystem() const {
     return this->opSystem;
 }
+std::string Phone::getType() const{
+    return this->type;
+}

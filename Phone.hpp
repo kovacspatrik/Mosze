@@ -19,6 +19,7 @@ public:
     std::string getOpsystem() const ;
     void generateTxt(std::string fileName);
     void generateJson();
+    std::string getType() const;
 };
 
 #endif

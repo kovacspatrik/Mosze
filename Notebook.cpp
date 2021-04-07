@@ -85,3 +85,6 @@ int Notebook::getRamSize()const {
 double Notebook::getWeight()const {
     return this->weight;
 }
+std::string Notebook::getType() const{
+    return this->type;
+}

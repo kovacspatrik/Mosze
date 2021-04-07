@@ -14,6 +14,13 @@ int Product::getPrice() const
     return price;
 }
 
+void Product::setPrice(int p){
+    this->price = p;
+}
+void Product::setQuantity(int q){
+    this->quantity = q;
+}
+
 std::string Product::getManufacturer() const
 {
     return manufacturer;
@@ -40,4 +47,9 @@ void Product::changeQuantity(int newQuantity)
     {
         quantity = 0;
     }
+}
+
+
+void Product::printName() const{
+    std::cout << getName() << std::endl;
 }
