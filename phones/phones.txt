@@ -1,0 +1,6 @@
+name
+price
+manufacturer
+quantity
+ramSize
+opSystem

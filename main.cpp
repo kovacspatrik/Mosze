@@ -108,7 +108,8 @@ int main(int argc, char *argv[])
             std::cin >> num;
             
             if(num==1){
-                std::cout << "Hamarosan...\n";
+                int valasz = typeSelectionMenu();
+                Raktar.createNewItem(valasz);;
             }
             if(num==2){//Modositas
                 int valasz = typeSelectionMenu();

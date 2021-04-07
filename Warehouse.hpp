@@ -23,6 +23,8 @@ public:
     static Warehouse ParseWarehouse(const std::string &fileName);
     int selectByType(int type) const;
     void modifyIteminStorage(int index);
+    void createNewItem(int idx);
+    void writeJSON(std::string filename, std::string readSablon);
 };
 
 #endif

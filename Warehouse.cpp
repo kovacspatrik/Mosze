@@ -138,3 +138,89 @@ void Warehouse::modifyIteminStorage(int index){
         return;
     }
 }
+
+void Warehouse::createNewItem(int indx)
+{
+    std::string writeFile, readSablon, filename;
+
+    std::fstream modInput;
+    modInput.open("input.txt", std::ios_base::app);
+
+    std::cout << "Kerem adja meg a temek nevet szokozok nelkul: " << std::endl;
+    std::cin >> filename;
+    std::cout << "Adja meg a termek adatait!" << std::endl;
+
+    if (indx == 1)
+    {
+        readSablon = "computers/computers.txt";
+        writeFile = "computers/" + filename + ".json";
+        modInput << std::endl;
+        modInput << writeFile;
+        writeJSON(writeFile, readSablon);
+    }
+
+    else if (indx == 2)
+    {
+        readSablon = "consoles/consoles.txt";
+        writeFile = "consoles/" + filename + ".json";
+        modInput << std::endl;
+        modInput << writeFile;
+
+        writeJSON(writeFile, readSablon);
+    }
+
+    else if (indx == 3)
+    {
+        readSablon = "notebooks/notebooks.txt";
+        writeFile = "notebooks/" + filename + ".json";
+        modInput << std::endl;
+        modInput << writeFile;
+
+        writeJSON(writeFile, readSablon);
+    }
+
+    else
+    {
+        readSablon = "phones/phones.txt";
+        writeFile = "phones/" + filename + ".json";
+        modInput << std::endl;
+        modInput << writeFile;
+
+        writeJSON(writeFile, readSablon);
+    }
+}
+
+void Warehouse::writeJSON(std::string writeFile, std::string readSablon)
+{
+    std::string myText, value;
+
+    std::ifstream readFile;
+
+    std::ofstream file;
+
+    std::string line;
+    int i,j;
+    j=1;
+    readFile.open(readSablon);
+    for (i = 0; std::getline(readFile, line); ++i);
+    readFile.close();
+
+    readFile.open(readSablon);
+    file.open(writeFile);
+    file << "{";
+    file << std::endl;
+    while (getline(readFile, myText))
+    {
+        std::cout << myText << ":";
+        std::cin >> value;
+        file <<"\"" << myText << "\"" << ": \"" << value << "\"";
+        if(j<i){
+            file << ",";
+        } 
+        file << std::endl;
+        ++j;
+    }
+    file << "}";
+    readFile.close();
+    file.close();
+}
