@@ -57,6 +57,8 @@ void deleteJSON(std::string filename,int tipus){
     if(remove("input.txt") != 0 )
         perror("Error deleting file");
     rename("tmp.txt","input.txt");   
+    if(remove("tmp.txt") != 0 )
+        perror("Error deleting file");
 }
 
 int main(int argc, char *argv[])
