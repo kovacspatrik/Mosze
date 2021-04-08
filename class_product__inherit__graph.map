@@ -1,0 +1,7 @@
+<map id="Product" name="Product">
+<area shape="rect" id="node1" title="Product class." alt="" coords="171,5,241,32"/>
+<area shape="rect" id="node2" href="$class_computer.html" title="Computer class." alt="" coords="5,80,92,107"/>
+<area shape="rect" id="node3" href="$class_console.html" title="Console class." alt="" coords="117,80,191,107"/>
+<area shape="rect" id="node4" href="$class_notebook.html" title="Notebook class." alt="" coords="215,80,301,107"/>
+<area shape="rect" id="node5" href="$class_phone.html" title="Phone class." alt="" coords="325,80,388,107"/>
+</map>
