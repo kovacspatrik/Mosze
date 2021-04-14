@@ -1,4 +1,4 @@
-name: Multiple Run Test
+name: Parse test
 
 on: 
   push

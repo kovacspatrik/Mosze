@@ -1,1 +1,1 @@
-./test_input.txt t
+./test_input.txt t 
