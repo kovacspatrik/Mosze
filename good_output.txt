@@ -7,4 +7,3 @@ Termek RAM merete: 32 GB
 Termek hattertar merete: 1000 GB  
 Keszleten: 16 db
 AR: 700000 Ft
-
