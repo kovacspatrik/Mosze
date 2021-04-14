@@ -2,7 +2,7 @@
 
 IFS=$'\n'
 
-rm output.txt
+rm generated_output.txt
 
 for i in `cat test_input.txt`; do 
     echo $i | xargs ./$1 >> $2
