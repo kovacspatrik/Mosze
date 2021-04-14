@@ -14,6 +14,8 @@ jobs:
         run: chmod +x run_test.sh
       - name: Run Test script
         run: ./run_test.sh a.out generated_output.txt
+      - name: echo
+        run: for i in `cat generated_output.txt`; do echo $i done 
       - name: Upload result file
         uses: actions/upload-artifact@v2
         with:
