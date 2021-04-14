@@ -94,7 +94,7 @@ int main(int argc, char *argv[])
     //Csak akkor ír ki ha teszt
     if (argc > 2)
     {
-        Raktar.makeFile();
+        //Raktar.makeFile();
         Raktar.print();
     }
     else

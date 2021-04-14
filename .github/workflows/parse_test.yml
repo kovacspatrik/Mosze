@@ -1,0 +1,21 @@
+name: Multiple Run Test
+
+on: 
+  push
+
+jobs:
+  build_AND_test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build
+        run: g++ *.cpp 
+      - name: Run Test 
+        run: ./a.out test_input.txt t
+      - name: Upload result file
+        uses: actions/upload-artifact@v2
+        with:
+          name: Result
+          path: outputfile.txt
+      - name: Check differences
+        run: diff outputfile.txt good_output.txt
